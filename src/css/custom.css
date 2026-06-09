@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ifm-color-primary: #3578e5;
+}
+
+html[data-theme='dark'] {
+  --ifm-background-color: #0c1222;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}

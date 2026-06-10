@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Novel Map · 创作工具</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .dark { background-color: #0c1222; color: #e3e3e3; }
+        .dark .bg-white { background-color: #1a1b26 !important; }
+        .dark .bg-gray-50 { background-color: #111827 !important; }
+        .dark .bg-gray-100 { background-color: #1f2937 !important; }
+        .dark .border-gray-200 { border-color: #2d3748 !important; }
+        .dark .text-gray-600 { color: #9ca3af !important; }
+        .dark .text-gray-700 { color: #d1d5db !important; }
+        .dark .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5), 0 4px 6px -2px rgba(0,0,0,0.3) !important; }
+        html { scroll-behavior: smooth; }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.02); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-[#f8f9fa] dark:bg-[#0c1222] font-sans antialiased transition-colors duration-300">
+
+    <!-- 导航栏（与 index 相同，当前页高亮） -->
+    <nav class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3"><a href="index.html" class="flex items-center space-x-2"><span class="text-2xl">📖</span><span class="font-bold text-xl text-gray-900 dark:text-white">Novel Map</span></a></div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition">首页</a>
+                    <a href="writing-guide.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition">写作指南</a>
+                    <a href="tools.html" class="text-blue-600 dark:text-blue-400 font-medium border-b-2 border-blue-500 pb-1">创作工具</a>
+                    <a href="series-detail.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition">系列详情</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="https://github.com/lyy351" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg></a>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg></a>
+                    <button id="themeToggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-yellow-300"><span id="themeIcon" class="text-lg">🌙</span></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero 区块（创作工具专用） -->
+    <div class="relative bg-white dark:bg-[#151b2d] border-b border-gray-200 dark:border-gray-800 pt-12 pb-24 overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/circuit-board.png')] opacity-[0.03] dark:opacity-[0.05]"></div>
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 mb-6 bg-cyan-50 dark:bg-cyan-900/30 border border-cyan-200 dark:border-cyan-800 text-cyan-600 dark:text-cyan-300 rounded-lg text-xs font-bold uppercase tracking-widest shadow-sm"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg> 创作工坊</div>
+                <h1 class="text-5xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight leading-tight">土堆工具箱</h1>
+                <p class="text-lg text-gray-600 dark:text-gray-400 font-medium max-w-lg mx-auto md:mx-0 leading-relaxed">在这里，我们搜集并制造最前沿的写作辅助工具。<br>目前已有 <span class="font-mono font-bold text-cyan-600 dark:text-cyan-400 text-xl">8</span> 个工具投入使用。</p>
+            </div>
+            <div class="relative h-64 flex items-end justify-center">
+                <div class="relative z-10 group">
+                    <div id="bubble" class="absolute -top-28 left-1/2 -translate-x-1/2 w-64 bg-white dark:bg-gray-800 px-3 py-2 rounded-2xl shadow-xl border-2 border-cyan-500/20"><span class="text-sm font-bold text-gray-700 dark:text-gray-300">🛠️ 好工具能提升写作效率，试试看吧。</span><div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white dark:bg-gray-800 border-b-2 border-r-2 border-cyan-500/20 rotate-45"></div></div>
+                    <div class="w-32 h-32 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-5xl shadow-2xl">🔧</div>
+                </div>
+                <div class="absolute bottom-2 left-1/4 -translate-x-1/2 group cursor-pointer hover:-translate-y-2 transition-transform duration-500"><div class="w-20 h-20 bg-cyan-200 dark:bg-cyan-800 rounded-lg shadow-lg flex items-center justify-center text-4xl">⚙️</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 筛选栏 -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
+        <div class="bg-white/90 dark:bg-[#1e293b]/90 backdrop-blur-xl border-2 border-gray-200 dark:border-gray-700 rounded-2xl shadow-xl p-4 mb-10 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="w-full md:w-auto">
+                <div class="md:hidden relative">
+                    <select id="categorySelectMobile" class="block w-full pl-10 pr-10 py-3 text-base border-2 border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 appearance-none font-bold shadow-sm">
+                        <option value="all">全部</option><option value="写作辅助">写作辅助</option><option value="大纲规划">大纲规划</option><option value="角色生成">角色生成</option><option value="灵感激发">灵感激发</option>
+                    </select>
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><svg class="h-4 w-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></div>
+                    <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none"><svg class="h-4 w-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+                </div>
+                <div class="hidden md:flex items-center gap-2">
+                    <div class="flex items-center gap-2 px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-lg mr-2 shrink-0 border border-gray-200 dark:border-gray-700"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg><span class="text-xs font-bold text-gray-500 uppercase">分类</span></div>
+                    <button data-cat="all" class="filter-btn px-4 py-2 rounded-lg text-sm font-bold transition-all border-2 bg-cyan-50 dark:bg-cyan-900/30 border-cyan-500 text-cyan-600 dark:text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">全部</button>
+                    <button data-cat="写作辅助" class="filter-btn px-4 py-2 rounded-lg text-sm font-bold transition-all border-2 bg-transparent border-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800">写作辅助</button>
+                    <button data-cat="大纲规划" class="filter-btn px-4 py-2 rounded-lg text-sm font-bold transition-all border-2 bg-transparent border-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800">大纲规划</button>
+                    <button data-cat="角色生成" class="filter-btn px-4 py-2 rounded-lg text-sm font-bold transition-all border-2 bg-transparent border-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800">角色生成</button>
+                    <button data-cat="灵感激发" class="filter-btn px-4 py-2 rounded-lg text-sm font-bold transition-all border-2 bg-transparent border-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800">灵感激发</button>
+                </div>
+            </div>
+            <div class="relative w-full md:w-72 group">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><svg class="h-4 w-4 text-gray-400 group-focus-within:text-cyan-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></div>
+                <input type="text" id="searchInput" placeholder="搜索工具名称..." class="block w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 rounded-xl text-sm font-medium text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-4 focus:ring-cyan-500/10 transition-all">
+                <button id="clearSearch" class="absolute right-3 top-1/2 -translate-y-1/2 p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors hidden"><svg class="w-3 h-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+            </div>
+        </div>
+
+        <div class="min-h-[400px] mb-20">
+            <div id="toolsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+            <div id="emptyState" class="flex flex-col items-center justify-center py-24 text-center border-4 border-dashed border-gray-200 dark:border-gray-800 rounded-3xl bg-gray-50/50 dark:bg-gray-800/20 hidden">
+                <div class="w-20 h-20 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mb-6 animate-bounce"><svg class="w-8 h-8 text-gray-300 dark:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></div>
+                <h3 class="text-xl font-black text-gray-900 dark:text-white mb-2">未找到相关工具</h3>
+                <p class="text-gray-500 font-medium max-w-xs mx-auto">尝试切换分类或搜索其他关键词。</p>
+                <button id="resetFilters" class="mt-6 px-6 py-2 bg-cyan-600 hover:bg-cyan-700 text-white font-bold rounded-lg transition-colors shadow-lg shadow-cyan-500/30">重置筛选</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部页脚 -->
+    <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div><h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4">站点地图</h3><ul class="space-y-2"><li><a href="index.html" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 text-sm">首页</a></li><li><a href="writing-guide.html" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 text-sm">写作指南</a></li><li><a href="tools.html" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 text-sm">创作工具</a></li><li><a href="series-detail.html" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 text-sm">系列详情</a></li></ul></div>
+                <div><h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4">社区</h3><ul class="space-y-2"><li><a href="https://github.com/lyy351" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 text-sm">GitHub</a></li><li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 text-sm">微信公众号</a></li><li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 text-sm">哔哩哔哩</a></li></ul></div>
+                <div><h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4">关于</h3><ul class="space-y-2"><li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 text-sm">个人简介</a></li><li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 text-sm">联系方式</a></li></ul></div>
+                <div><h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4">友链</h3><ul class="space-y-2"><li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 text-sm">土堆教程</a></li><li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 text-sm">Docusaurus</a></li></ul></div>
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-800 pt-6 text-center"><p class="text-xs text-gray-500 dark:text-gray-400">© 2025 Novel Map. 本网站仅供个人创作展示。<br>沪ICP备2024055345号（示例）。 Built with ❤️ and HTML/CSS.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle'), html = document.documentElement, icon = document.getElementById('themeIcon');
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) { html.classList.add('dark'); icon.innerText = '☀️'; } else { icon.innerText = '🌙'; }
+        themeToggle.addEventListener('click', () => { if (html.classList.contains('dark')) { html.classList.remove('dark'); localStorage.setItem('theme', 'light'); icon.innerText = '🌙'; } else { html.classList.add('dark'); localStorage.setItem('theme', 'dark'); icon.innerText = '☀️'; } });
+
+        const tools = [
+            { title: "故事大纲生成器", description: "输入核心创意，自动生成三幕式结构大纲。", category: "大纲规划", icon: "📝", link: "#", color: "#0891b2" },
+            { title: "角色设定卡模板", description: "从外貌、性格到背景故事，完整角色档案。", category: "角色生成", icon: "👤", link: "#", color: "#8b5cf6" },
+            { title: "灵感随想本", description: "随时记录碎片灵感，自动关联关键词。", category: "灵感激发", icon: "💡", link: "#", color: "#22c55e" },
+            { title: "写作计时器", description: "番茄钟 + 字数统计，提升写作专注力。", category: "写作辅助", icon: "⏱️", link: "#", color: "#3b82f6" },
+            { title: "地名生成器", description: "随机生成奇幻/科幻风格的地名。", category: "写作辅助", icon: "🏞️", link: "#", color: "#f59e0b" },
+            { title: "情节冲突生成器", description: "随机生成人物之间的矛盾冲突点。", category: "灵感激发", icon: "⚡", link: "#", color: "#ef4444" },
+            { title: "三幕结构检查表", description: "对照检查故事节奏是否合理。", category: "大纲规划", icon: "✅", link: "#", color: "#14b8a6" },
+            { title: "人物关系图谱", description: "可视化角色关系网络。", category: "角色生成", icon: "🕸️", link: "#", color: "#a855f7" }
+        ];
+
+        let currentCategory = "all", currentSearch = "";
+        function renderTools() {
+            const filtered = tools.filter(t => (currentCategory === "all" || t.category === currentCategory) && (t.title.toLowerCase().includes(currentSearch.toLowerCase()) || t.description.toLowerCase().includes(currentSearch.toLowerCase())));
+            const grid = document.getElementById("toolsGrid"), empty = document.getElementById("emptyState");
+            if (filtered.length === 0) { grid.classList.add("hidden"); empty.classList.remove("hidden"); return; }
+            grid.classList.remove("hidden"); empty.classList.add("hidden");
+            grid.innerHTML = filtered.map(t => {
+                const gradient = `linear-gradient(135deg, ${t.color}, ${t.color === "#0891b2" ? "#3b82f6" : t.color === "#8b5cf6" ? "#a855f7" : t.color === "#22c55e" ? "#14b8a6" : t.color === "#3b82f6" ? "#6366f1" : t.color === "#f59e0b" ? "#f97316" : t.color === "#ef4444" ? "#dc2626" : "#14b8a6"})`;
+                return `<a href="${t.link}" class="group relative block h-full no-underline hover:no-underline">
+                    <div class="relative h-full transition-all duration-500 ease-out hover:-translate-y-3">
+                        <div class="absolute -inset-3 rounded-3xl blur-2xl opacity-0 group-hover:opacity-60 transition-opacity duration-700 pointer-events-none" style="background: radial-gradient(circle, ${t.color}25, transparent 70%)"></div>
+                        <div class="relative h-full bg-white dark:bg-[#1a1b26] rounded-2xl overflow-hidden flex flex-col shadow-[0_2px_15px_rgba(0,0,0,0.06)] dark:shadow-[0_2px_15px_rgba(0,0,0,0.3)] group-hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] dark:group-hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)] transition-all duration-500 border border-gray-100 dark:border-gray-800 group-hover:border-transparent">
+                            <div class="relative h-32 overflow-hidden" style="background: ${gradient}">
+                                <div class="absolute inset-0 opacity-[0.07]" style="background-image: url('data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M20 0L40 20L20 40L0 20z\' fill=\'%23fff\'/%3E%3C/svg%3E'); background-size: 24px 24px"></div>
+                                <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-1000"></div>
+                                <div class="absolute -bottom-6 -left-6 w-28 h-28 bg-black/5 rounded-full blur-2xl"></div>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="relative">
+                                        <div class="absolute -inset-8 bg-white/5 rounded-full blur-2xl group-hover:bg-white/15 group-hover:scale-150 transition-all duration-700"></div>
+                                        <div class="relative w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-sm flex items-center justify-center border border-white/20 shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500"><span class="text-3xl">${t.icon}</span></div>
+                                    </div>
+                                </div>
+                                <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none"></div>
+                                <div class="absolute top-3 left-3"><span class="px-2 py-0.5 rounded-md bg-black/20 backdrop-blur-sm text-white/90 text-[10px] font-bold tracking-wide border border-white/10">${t.category}</span></div>
+                                <div class="absolute -bottom-px left-0 right-0"><svg viewBox="0 0 400 20" preserveAspectRatio="none" class="w-full h-5 block"><path d="M0,20 Q200,0 400,20 L400,20 L0,20 Z" class="fill-white dark:fill-[#1a1b26]"></path></svg></div>
+                            </div>
+                            <div class="flex-1 flex flex-col px-5 pb-5 pt-3">
+                                <h3 class="text-lg font-black mb-1.5 line-clamp-2 text-gray-900 dark:text-gray-100">${t.title}</h3>
+                                <p class="text-[13px] line-clamp-2 text-gray-500 dark:text-gray-400 leading-relaxed flex-1 mb-4">${t.description}</p>
+                                <div class="w-full py-3 rounded-xl text-white font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300 group-hover:scale-[1.02] mt-auto" style="background: ${gradient}; box-shadow: 0 4px 20px ${t.color}25">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                    使用工具
+                                    <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>`;
+            }).join('');
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentCategory = btn.getAttribute('data-cat');
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    if (b.getAttribute('data-cat') === currentCategory) {
+                        b.classList.add('bg-cyan-50', 'dark:bg-cyan-900/30', 'border-cyan-500', 'text-cyan-600', 'dark:text-cyan-300', 'shadow-[0_0_15px_rgba(6,182,212,0.2)]');
+                        b.classList.remove('bg-transparent', 'border-transparent', 'text-gray-600', 'dark:text-gray-400', 'hover:bg-gray-50', 'dark:hover:bg-gray-800');
+                    } else {
+                        b.classList.remove('bg-cyan-50', 'dark:bg-cyan-900/30', 'border-cyan-500', 'text-cyan-600', 'dark:text-cyan-300', 'shadow-[0_0_15px_rgba(6,182,212,0.2)]');
+                        b.classList.add('bg-transparent', 'border-transparent', 'text-gray-600', 'dark:text-gray-400', 'hover:bg-gray-50', 'dark:hover:bg-gray-800');
+                    }
+                });
+                if (document.getElementById('categorySelectMobile')) document.getElementById('categorySelectMobile').value = currentCategory;
+                renderTools();
+            });
+        });
+        const mobileSelect = document.getElementById('categorySelectMobile');
+        if (mobileSelect) mobileSelect.addEventListener('change', (e) => { currentCategory = e.target.value; document.querySelector(`.filter-btn[data-cat="${currentCategory}"]`).click(); });
+        const searchInput = document.getElementById('searchInput'), clearSearch = document.getElementById('clearSearch');
+        searchInput.addEventListener('input', (e) => { currentSearch = e.target.value.trim(); if (currentSearch) clearSearch.classList.remove('hidden'); else clearSearch.classList.add('hidden'); renderTools(); });
+        clearSearch.addEventListener('click', () => { searchInput.value = ''; currentSearch = ''; clearSearch.classList.add('hidden'); renderTools(); });
+        document.getElementById('resetFilters').addEventListener('click', () => { document.querySelector('.filter-btn[data-cat="all"]').click(); searchInput.value = ''; currentSearch = ''; clearSearch.classList.add('hidden'); renderTools(); });
+        renderTools();
+
+        const bubble = document.getElementById('bubble'), msgs = ["🛠️ 好工具能提升写作效率，试试看吧。", "📝 大纲规划是长篇写作的基石。", "🎭 角色生成器帮你塑造鲜活人物。"];
+        let idx = 0; setInterval(() => { idx = (idx+1)%msgs.length; if(bubble){ bubble.querySelector('span').innerText = msgs[idx]; bubble.classList.add('scale-95','opacity-0'); setTimeout(()=>bubble.classList.remove('scale-95','opacity-0'),200); } }, 4000);
+    </script>
+</body>
+</html>

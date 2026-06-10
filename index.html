@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>小说园地 · 风格预览</title>
+    <!-- Tailwind CSS CDN + 基础层 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 自定义覆盖 Tailwind 默认主题，匹配参考网站暗色主题和阴影细节 -->
+    <style>
+        /* 额外定制：更深度的暗色模式、边框、动画 */
+        .dark {
+            background-color: #0c1222;
+            color: #e3e3e3;
+        }
+        .dark .bg-white { background-color: #1a1b26 !important; }
+        .dark .text-gray-900 { color: #f0f0f0 !important; }
+        .dark .border-gray-200 { border-color: #2d3748 !important; }
+        .dark .bg-gray-50 { background-color: #111827 !important; }
+        .dark .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5) !important; }
+        
+        /* 自定义平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* 模拟像素风图片占位 */
+        .pixelated {
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+        /* 闪烁动画 */
+        @keyframes gentlePulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+        .animate-gentle-pulse {
+            animation: gentlePulse 4s ease-in-out infinite;
+        }
+        /* 渐变背景移动 */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .bg-animate {
+            background-size: 200% 200%;
+            animation: gradientShift 6s ease infinite;
+        }
+    </style>
+</head>
+<body class="bg-[#f8f9fa] dark:bg-[#0c1222] font-sans antialiased transition-colors duration-300">
+
+    <!-- 深色模式切换按钮（独立于任何框架） -->
+    <div class="fixed top-5 right-5 z-50">
+        <button id="themeToggle" class="bg-white dark:bg-gray-800 rounded-full p-2 shadow-lg border border-gray-200 dark:border-gray-700">
+            <span id="themeIcon" class="text-gray-800 dark:text-yellow-300 text-xl">🌙</span>
+        </button>
+    </div>
+
+    <!-- 主容器 -->
+    <div class="min-h-screen">
+        <!-- Hero 区块 (完全复刻参考样式) -->
+        <div class="relative bg-white dark:bg-[#151b2d] border-b border-gray-200 dark:border-gray-800 pt-16 pb-24 overflow-hidden">
+            <!-- 背景纹理图案 -->
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
+                <!-- 左侧文字 -->
+                <div class="text-center md:text-left">
+                    <div class="inline-block px-5 py-2 mb-5 bg-yellow-400 text-black font-black text-sm md:text-base uppercase tracking-wider transform -rotate-1 shadow-sm rounded-md">
+                        🧭 学习路线模式
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-black text-gray-900 dark:text-white mb-6 leading-tight tracking-tight">
+                        土堆教程
+                    </h1>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 font-medium max-w-lg mx-auto md:mx-0 leading-relaxed">
+                        入门难？不知道先学哪个？<br>
+                        按照 <span class="font-bold text-gray-900 dark:text-white">学习路线</span>，轻松从入门到进阶。<br>
+                        另有<span class="font-bold text-gray-900 dark:text-white">入门心得</span>，一点愚见，仅供参考。
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center md:items-start gap-3 mb-4">
+                        <button id="scrollToRoadmaps" class="inline-flex h-14 items-center justify-center gap-2 px-6 rounded-xl border-2 border-transparent bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-bold leading-none no-underline hover:opacity-90 transition-opacity min-w-[220px] cursor-pointer shadow-md">
+                            📖 开始学习路线
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                        </button>
+                        <a href="#" class="inline-flex h-14 items-center justify-center gap-2 px-6 rounded-xl border-2 border-gray-900/15 dark:border-white/20 bg-white/80 dark:bg-transparent text-gray-900 dark:text-white text-sm font-bold leading-none no-underline hover:no-underline hover:bg-white dark:hover:bg-white/10 transition-colors min-w-[220px] cursor-pointer">
+                            ✨ 查看入门心得
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- 右侧动画小人+对话框 (模拟土堆的战士和气泡) -->
+                <div class="relative h-64 w-full flex items-end justify-center">
+                    <div class="relative z-10 group">
+                        <div id="bubble" class="absolute -top-28 left-1/2 -translate-x-1/2 w-64 bg-white dark:bg-gray-800 px-3 py-2 rounded-2xl shadow-xl border-2 border-blue-500/20 transform transition-all duration-300">
+                            <span class="text-sm font-bold text-gray-700 dark:text-gray-300 text-center leading-relaxed block">
+                                💡 不知道先学哪个？可以按照下方的学习路线进行学习
+                            </span>
+                            <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white dark:bg-gray-800 border-b-2 border-r-2 border-blue-500/20 transform rotate-45"></div>
+                        </div>
+                        <img src="https://placekitten.com/120/120?image=1" class="w-32 h-32 object-contain drop-shadow-2xl rounded-full border-2 border-blue-300 dark:border-blue-700" alt="战士">
+                        <!-- 本应使用 /img/game/Warrior_Blue.gif，这里用占位猫代替，实际你可以替换 -->
+                    </div>
+                    <div class="absolute bottom-2 left-1/4 -translate-x-1/2 group cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+                        <div class="w-20 h-20 bg-blue-200 dark:bg-blue-800 rounded-lg shadow-lg flex items-center justify-center text-4xl">🗼</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 学习路线区块 -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="roadmapsSection">
+            <div class="flex items-center gap-4 mb-10">
+                <div class="w-12 h-12 bg-red-500 rounded-2xl flex items-center justify-center shadow-lg shadow-red-500/20 transform -rotate-3">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-black text-gray-900 dark:text-white uppercase tracking-tight">
+                        学习路线
+                    </h2>
+                    <p class="text-sm text-gray-500 font-medium mt-1">精心设计的学习路线，更好更快入门。</p>
+                </div>
+            </div>
+
+            <!-- 卡片网格 (3列，完全参考样式) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 卡片 1: PyTorch -->
+                <a href="#" class="group relative block h-full no-underline hover:no-underline">
+                    <div class="relative h-full transition-all duration-500 hover:-translate-y-2 hover:shadow-xl rounded-xl">
+                        <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-0 group-hover:opacity-40 transition duration-500"></div>
+                        <div class="relative h-full bg-white dark:bg-[#1a1b26] rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-blue-500/50 dark:group-hover:border-blue-500/50 p-6 overflow-hidden flex flex-col">
+                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-yellow-200/80 dark:bg-yellow-900/50 shadow-sm rotate-1 z-10 opacity-80 backdrop-blur-sm"></div>
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="w-14 h-14 rounded-xl flex items-center justify-center text-3xl shadow-sm border bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 border-gray-100 dark:border-gray-700">
+                                    🔥
+                                </div>
+                                <div class="flex flex-col items-center justify-center w-10 h-12 border-2 rounded-lg font-black text-xl shadow-sm text-orange-500 border-orange-500 bg-orange-50 dark:bg-orange-950/30">
+                                    <span class="text-[8px] uppercase font-bold opacity-60 leading-none mt-1">Rank</span>
+                                    <span class="leading-none">S</span>
+                                </div>
+                            </div>
+                            <div class="mb-6 flex-1 relative z-10">
+                                <h3 class="text-xl font-bold mb-2 line-clamp-1 text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">PyTorch 学习路线</h3>
+                                <p class="text-sm line-clamp-2 text-gray-500 dark:text-gray-400">适合零基础入门，学习PyTorch深度学习框架。强烈推荐作为学习旅途的第一站。</p>
+                            </div>
+                            <div class="relative z-10">
+                                <div class="w-full py-3 rounded-lg bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold text-sm flex items-center justify-center gap-2 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-all shadow-lg group-hover:shadow-blue-500/30">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    查看学习路线
+                                    <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0); background-size: 16px 16px;"></div>
+                        </div>
+                    </div>
+                </a>
+                <!-- 卡片 2: 目标检测 -->
+                <a href="#" class="group relative block h-full no-underline hover:no-underline">
+                    <div class="relative h-full transition-all duration-500 hover:-translate-y-2 hover:shadow-xl rounded-xl">
+                        <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-0 group-hover:opacity-40 transition duration-500"></div>
+                        <div class="relative h-full bg-white dark:bg-[#1a1b26] rounded-xl border-2 border-gray-200 dark:border-gray-700 group-hover:border-blue-500/50 p-6 overflow-hidden flex flex-col">
+                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-yellow-200/80 dark:bg-yellow-900/50 shadow-sm rotate-1 z-10 opacity-80 backdrop-blur-sm"></div>
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="w-14 h-14 rounded-xl flex items-center justify-center text-3xl shadow-sm border bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 border-gray-100 dark:border-gray-700">
+                                    🎯
+                                </div>
+                                <div class="flex flex-col items-center justify-center w-10 h-12 border-2 rounded-lg font-black text-xl shadow-sm text-orange-500 border-orange-500 bg-orange-50 dark:bg-orange-950/30">
+                                    <span class="text-[8px] uppercase font-bold opacity-60 leading-none mt-1">Rank</span>
+                                    <span class="leading-none">S</span>
+                                </div>
+                            </div>
+                            <div class="mb-6 flex-1">
+                                <h3 class="text-xl font-bold mb-2 line-clamp-1 text-gray-900 dark:text-gray-100 group-hover:text-blue-600">目标检测学习路线</h3>
+                                <p class="text-sm line-clamp-2 text-gray-500 dark:text-gray-400">适合零基础入门，学习目标检测的核心技术和实战应用。</p>
+                            </div>
+                            <div class="w-full py-3 rounded-lg bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold text-sm flex items-center justify-center gap-2 group-hover:bg-blue-600 dark:group-hover:bg-blue-400 transition-all shadow-lg">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                查看学习路线
+                                <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </div>
+                            <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0); background-size: 16px 16px;"></div>
+                        </div>
+                    </div>
+                </a>
+                <!-- 卡片 3: 大语言模型 (coming soon) -->
+                <div class="group relative block h-full cursor-not-allowed">
+                    <div class="relative h-full rounded-xl">
+                        <div class="relative h-full bg-white dark:bg-[#1a1b26] rounded-xl border-2 border-gray-200 dark:border-gray-800 p-6 overflow-hidden flex flex-col opacity-80">
+                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-yellow-200/80 dark:bg-yellow-900/50 shadow-sm rotate-1 z-10 opacity-80 backdrop-blur-sm"></div>
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="w-14 h-14 rounded-xl flex items-center justify-center text-3xl shadow-sm border bg-gray-100 border-gray-200 text-gray-400">🤖</div>
+                                <div class="flex flex-col items-center justify-center w-10 h-12 border-2 rounded-lg font-black text-xl shadow-sm text-gray-400 border-gray-400 bg-gray-100">
+                                    <span class="text-[8px] uppercase font-bold opacity-60 leading-none mt-1">Rank</span>
+                                    <span class="leading-none">A</span>
+                                </div>
+                            </div>
+                            <div class="mb-6 flex-1">
+                                <h3 class="text-xl font-bold mb-2 line-clamp-1 text-gray-400">大语言模型/自然语言处理</h3>
+                                <p class="text-sm line-clamp-2 text-gray-400">从基础NLP到大型语言模型的完整学习路径</p>
+                            </div>
+                            <div class="w-full py-3 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-700 flex items-center justify-center gap-2 text-gray-400 font-bold text-sm bg-gray-50 dark:bg-gray-800/30">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                敬请期待
+                            </div>
+                            <div class="absolute inset-0 z-0 bg-gray-100/50 dark:bg-black/50 backdrop-blur-[1px] flex items-center justify-center pointer-events-none">
+                                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-4 border-gray-300 dark:border-gray-600 rounded-full opacity-20 transform -rotate-12"></div>
+                            </div>
+                            <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0); background-size: 16px 16px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 简单的页脚装饰 -->
+        <footer class="border-t border-gray-200 dark:border-gray-800 py-8 text-center text-sm text-gray-500">
+            <p>© 2025 土堆教程 · 风格预览版 | 仅用于展示视觉效果</p>
+        </footer>
+    </div>
+
+    <script>
+        // 深色模式切换逻辑
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        const themeIcon = document.getElementById('themeIcon');
+        
+        // 检测本地存储或系统偏好
+        const isDark = localStorage.getItem('theme') === 'dark' || 
+                      (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('theme'));
+        if (isDark) {
+            htmlElement.classList.add('dark');
+            themeIcon.innerText = '☀️';
+        } else {
+            htmlElement.classList.remove('dark');
+            themeIcon.innerText = '🌙';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                themeIcon.innerText = '🌙';
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.innerText = '☀️';
+            }
+        });
+        
+        // 滚动到学习路线区块
+        document.getElementById('scrollToRoadmaps').addEventListener('click', () => {
+            document.getElementById('roadmapsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        
+        // 模拟气泡轮播 (简单示例)
+        const bubble = document.getElementById('bubble');
+        const messages = [
+            "不知道先学哪个？可以按照下方的学习路线进行学习",
+            "学习路线分为 入门 和 进阶 两个等级噢",
+            "网站右上角有我主人的联系方式，欢迎关注～"
+        ];
+        let idx = 0;
+        setInterval(() => {
+            idx = (idx + 1) % messages.length;
+            bubble.querySelector('span').innerText = messages[idx];
+            bubble.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                bubble.classList.remove('scale-95', 'opacity-0');
+            }, 200);
+        }, 4000);
+    </script>
+</body>
+</html>

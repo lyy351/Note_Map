@@ -16,11 +16,8 @@ const config = {
     [
       'classic',
       {
-        docs: {
-          sidebarPath: './sidebars.js',
-          editUrl: 'https://github.com/lyy351/Novel_Map/edit/main/',
-        },
-        blog: false,
+        docs: false,      // 禁用内置文档插件
+        blog: false,      // 禁用内置博客插件
         theme: {
           customCss: './src/css/custom.css',
         },

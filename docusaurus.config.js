@@ -4,7 +4,7 @@ const config = {
   title: 'Novel Map',
   tagline: '学习路线图',
   favicon: 'img/favicon.ico',
-  url: 'https://lyy351.github.io',     // ⚠️ 把“你的用户名”换成你的 GitHub 用户名
+  url: 'https://lyy351.github.io',
   baseUrl: '/Novel_Map/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -51,18 +51,6 @@ const config = {
       darkTheme: themes.dracula,
     },
   },
-  plugins: [
-    [
-      '@easyops-cn/docusaurus-search-local',
-      {
-        hashed: true,
-        language: ['zh'],
-        indexBlog: false,
-        indexDocs: true,
-        docsRoute: '/docs',
-      },
-    ],
-  ],
 };
 
 export default config;

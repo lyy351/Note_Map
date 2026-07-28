@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>文学理论 · 学习笔记</title>
+  <style>
+    /* 样式完全同 female.html，此处仅展示内容差异 */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { min-height:100vh; background:#f1f5e7; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; display:flex; justify-content:center; padding:2rem 1rem; }
+    .detail-container { width:100%; max-width:1200px; display:flex; gap:3rem; }
+    .sidebar-wrapper { flex:0 0 260px; padding-top:0.5rem; }
+    .line-sidebar { --accent-color: #fc5204; --text-color: #333; --marker-color: #aaa; --marker-length: 60px; --marker-gap: 0px; --tick-scale: 0.5; --max-shift: 30px; --item-gap: 20px; --font-size: 1.1rem; --smoothing: 100ms; position: relative; display: flex; justify-content: flex-start; }
+    .line-sidebar--markers { padding-left: calc(var(--marker-length) + var(--marker-gap)); }
+    .line-sidebar__list { list-style: none; margin: 0; padding: 1rem 0; display: flex; flex-direction: column; gap: var(--item-gap); }
+    .line-sidebar__item { position: relative; cursor: pointer; --effect: 0; }
+    .line-sidebar__item::before { content: ''; position: absolute; inset: -6px -48px; }
+    .line-sidebar__label { position: relative; display: inline-flex; align-items: baseline; font-size: var(--font-size); line-height: 1.2; color: color-mix(in srgb, var(--accent-color) calc(var(--effect, 0) * 100%), var(--text-color)); transform: translateX(calc(var(--effect, 0) * var(--max-shift))); transition: none; }
+    .line-sidebar__index { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; margin-right: 0.6rem; font-size: 0.85em; opacity: calc(0.55 + var(--effect, 0) * 0.45); }
+    .line-sidebar__marker { position: absolute; top: 50%; left: calc(-1 * var(--marker-length) - var(--marker-gap)); height: 1px; width: var(--marker-length); background-color: color-mix(in srgb, var(--accent-color) calc(var(--effect, 0) * 100%), var(--marker-color)); transform-origin: left center; transform: translateY(-50%) scaleX(calc(0.7 + var(--effect, 0) * 0.5)); }
+    .line-sidebar--markers .line-sidebar__item:not(:last-child)::after { content: ''; position: absolute; top: calc(100% + var(--item-gap) / 2); left: calc(-1 * var(--marker-length) - var(--marker-gap)); height: 1px; width: calc(var(--marker-length) * var(--tick-scale)); background-color: var(--marker-color); opacity: 0.5; transform-origin: left center; transform: translateY(-50%) scaleX(calc(0.7 + var(--effect, 0) * 0.6)); }
+    .content-area { flex: 1; padding-top: 1.5rem; }
+    .content-area h1 { font-size: 2.2rem; color: #fc5204; margin-bottom: 1.5rem; border-bottom: 2px solid #fc5204; padding-bottom: 0.5rem; display: inline-block; }
+    .topic-content { font-size: 1.1rem; line-height: 1.8; color: #2d3a2b; max-width: 600px; }
+    .back-btn { margin-top: 2rem; padding: 0.6rem 1.8rem; background: transparent; border: 1px solid #fc5204; color: #fc5204; border-radius: 4px; cursor: pointer; font-size: 0.95rem; transition: 0.3s; text-decoration: none; display: inline-block; }
+    .back-btn:hover { background: #fc5204; color: #fff; }
+    @media (max-width: 640px) { .detail-container { flex-direction: column; gap:1rem; } .sidebar-wrapper { flex:none; width:100%; } .line-sidebar--markers { padding-left:0; } .line-sidebar__marker, .line-sidebar--markers .line-sidebar__item:not(:last-child)::after { display:none; } .content-area h1 { font-size:1.6rem; } }
+  </style>
+</head>
+<body>
+  <div class="detail-container">
+    <aside class="sidebar-wrapper">
+      <nav class="line-sidebar line-sidebar--markers" id="lineSidebar">
+        <ul class="line-sidebar__list" id="sidebarList"></ul>
+      </nav>
+    </aside>
+    <main class="content-area">
+      <h1 id="topicTitle">文学理论</h1>
+      <div class="topic-content" id="topicContent">
+        <p><strong>文学理论</strong> 包括结构主义、后现代主义、女性主义批评等流派，帮助你深入解读文本。</p>
+        <p>这里整理了主要理论流派的核心观点和代表性学者，适合文学爱好者与研究者参考。</p>
+        <ul style="margin-top:0.8rem;list-style:disc;padding-left:1.5rem;">
+          <li>形式主义与新批评</li>
+          <li>结构主义与符号学</li>
+          <li>后结构主义与解构</li>
+          <li>文化研究</li>
+        </ul>
+      </div>
+      <a href="index.html" class="back-btn">← 返回首页</a>
+    </main>
+  </div>
+
+  <script>
+    // JavaScript 与 female.html 完全相同，为节省篇幅此处省略，但实际文件中必须完整包含。
+    // 使用时请复制 female.html 中的 <script> 部分。
+    (function() {
+      const TOPICS = [
+        { id: 'painting-route', label: '绘画路线', file: 'painting-route.html' },
+        { id: 'painting-free', label: '绘画随意', file: 'painting-free.html' },
+        { id: 'female', label: '女性', file: 'female.html' },
+        { id: 'literary-theory', label: '文学理论', file: 'literary-theory.html' },
+        { id: 'others', label: '其他', file: 'others.html' }
+      ];
+      const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+      let activeIndex = 0;
+      TOPICS.forEach((t, i) => { if (t.file === currentFile) activeIndex = i; });
+
+      const sidebarList = document.getElementById('sidebarList');
+      TOPICS.forEach((topic, index) => {
+        const li = document.createElement('li');
+        li.className = 'line-sidebar__item';
+        li.dataset.index = index;
+        const marker = document.createElement('span');
+        marker.className = 'line-sidebar__marker';
+        marker.setAttribute('aria-hidden', 'true');
+        li.appendChild(marker);
+        const labelSpan = document.createElement('span');
+        labelSpan.className = 'line-sidebar__label';
+        const idxSpan = document.createElement('span');
+        idxSpan.className = 'line-sidebar__index';
+        idxSpan.textContent = String(index + 1).padStart(2, '0');
+        labelSpan.appendChild(idxSpan);
+        const textSpan = document.createElement('span');
+        textSpan.className = 'line-sidebar__text';
+        textSpan.textContent = topic.label;
+        labelSpan.appendChild(textSpan);
+        li.appendChild(labelSpan);
+        sidebarList.appendChild(li);
+        li.addEventListener('click', function() {
+          window.location.href = topic.file;
+        });
+      });
+
+      const items = sidebarList.querySelectorAll('.line-sidebar__item');
+      items.forEach((el, i) => {
+        el.setAttribute('aria-current', i === activeIndex ? 'true' : 'false');
+        el.style.setProperty('--effect', i === activeIndex ? '1' : '0');
+      });
+
+      const listEl = document.getElementById('sidebarList');
+      let itemEls = [];
+      let targets = [];
+      let currents = [];
+      let rafId = null;
+      let lastTime = 0;
+      const smoothing = 100;
+      const proximityRadius = 100;
+
+      function easeSmooth(p) { return p * p * (3 - 2 * p); }
+      function easeLinear(p) { return p; }
+      const falloff = 'smooth';
+      const getEase = (type) => type === 'smooth' ? easeSmooth : easeLinear;
+
+      function updateItemRefs() {
+        itemEls = Array.from(listEl.querySelectorAll('.line-sidebar__item'));
+        const len = itemEls.length;
+        while (targets.length < len) targets.push(0);
+        while (currents.length < len) currents.push(0);
+        while (targets.length > len) { targets.pop(); currents.pop(); }
+        targets.forEach((_, i) => {
+          if (i === activeIndex) {
+            targets[i] = 1;
+            currents[i] = 1;
+          } else {
+            targets[i] = 0;
+            currents[i] = 0;
+          }
+        });
+        itemEls.forEach((el, i) => {
+          el.style.setProperty('--effect', currents[i].toFixed(4));
+        });
+      }
+
+      function animateSidebar(timestamp) {
+        if (!lastTime) lastTime = timestamp;
+        const dt = Math.min((timestamp - lastTime) / 1000, 0.05);
+        lastTime = timestamp;
+        const tau = Math.max(smoothing, 1) / 1000;
+        const k = 1 - Math.exp(-dt / tau);
+        const ease = getEase(falloff);
+
+        let moving = false;
+        itemEls.forEach((el, i) => {
+          const activeBonus = (i === activeIndex) ? 1 : 0;
+          const target = Math.max(targets[i] || 0, activeBonus);
+          const cur = currents[i] || 0;
+          const next = cur + (target - cur) * k;
+          const settled = Math.abs(target - next) < 0.0015;
+          const value = settled ? target : next;
+          currents[i] = value;
+          el.style.setProperty('--effect', value.toFixed(4));
+          if (!settled) moving = true;
+        });
+
+        rafId = moving ? requestAnimationFrame(animateSidebar) : null;
+      }
+
+      function startAnimation() {
+        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+        lastTime = 0;
+        updateItemRefs();
+        rafId = requestAnimationFrame(animateSidebar);
+      }
+
+      function onPointerMove(e) {
+        const rect = listEl.getBoundingClientRect();
+        const pointerY = e.clientY - rect.top;
+        const ease = getEase(falloff);
+        itemEls.forEach((el, i) => {
+          const center = el.offsetTop + el.offsetHeight / 2;
+          const distance = Math.abs(pointerY - center);
+          const raw = Math.max(0, 1 - distance / proximityRadius);
+          targets[i] = ease(raw);
+        });
+        if (!rafId) { lastTime = 0; rafId = requestAnimationFrame(animateSidebar); }
+      }
+
+      function onPointerLeave() {
+        itemEls.forEach((_, i) => { targets[i] = 0; });
+        if (!rafId) { lastTime = 0; rafId = requestAnimationFrame(animateSidebar); }
+      }
+
+      listEl.addEventListener('pointermove', onPointerMove);
+      listEl.addEventListener('pointerleave', onPointerLeave);
+
+      startAnimation();
+      document.addEventListener('visibilitychange', function() {
+        if (!document.hidden && !rafId) {
+          lastTime = 0;
+          rafId = requestAnimationFrame(animateSidebar);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

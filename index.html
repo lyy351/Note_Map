@@ -1,153 +1,100 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>学习笔记 · 卡片动效</title>
-    <style>
-        /* 全局重置 & 背景 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            min-height: 100vh;
-            background: #f1f5e7;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            /* 取消垂直居中，让内容从顶部开始 */
-            justify-content: flex-start;
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-            padding: 0 1rem 2rem;
-            /* 保留左右内边距，上边距为0 */
-        }
-
-        /* ---- 顶部“学习笔记” ---- */
-        .header {
-            width: 100%;
-            max-width: 800px;
-            /* 去掉下边距，或保留很小 */
-            margin-bottom: 1.5rem;
-            margin-top: 0.5rem;
-            /* 加一点微调，让标题不紧贴边缘 */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            /* 字体大小与卡片标签一致 */
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #fc5204;
-            /* 与卡片文字颜色一致，更统一 */
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            /* 保持和卡片标签风格统一 */
-            padding: 0 0.2rem;
-        }
-
-        /* 标题每个字独立span，继承样式 */
-        .header span {
-            display: inline-block;
-        }
-
-        /* ---- 卡片样式 ---- */
-        .card {
-            width: 210px;
-            height: 254px;
-            border-radius: 4px;
-            background: #f1f5e7;
-            display: flex;
-            gap: 5px;
-            padding: 0.4em;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
-            /* 让卡片在页面中稍微居中（垂直方向靠上但留有一定空间） */
-            margin-top: 1rem;
-        }
-
-        .card p {
-            height: 100%;
-            flex: 1;
-            overflow: hidden;
-            cursor: pointer;
-            border-radius: 2px;
-            transition: all 0.5s;
-            background: #f1f5e7;
-            border: 1px solid #fc5204;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-        }
-
-        .card p:hover {
-            flex: 4;
-        }
-
-        .card p span {
-            min-width: 14em;
-            padding: 0.5em;
-            text-align: center;
-            transform: rotate(-90deg);
-            transition: all 0.5s;
-            text-transform: uppercase;
-            color: #fc5204;
-            letter-spacing: 0.1em;
-            font-size: 0.85rem;
-            /* 明确大小 */
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-        .card p:hover span {
-            transform: rotate(0);
-        }
-
-        /* ---- 卡片容器居中 ---- */
-        .card-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            flex: 1;
-            /* 让卡片在剩余空间居中 */
-        }
-
-        /* ---- 响应式微调 ---- */
-        @media (max-width: 480px) {
-            .card {
-                transform: scale(0.85);
-            }
-            .header {
-                font-size: 0.75rem;
-                /* 小屏可略微缩小，但保持一致 */
-            }
-            .card p span {
-                font-size: 0.75rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>学习笔记 · 首页</title>
+  <style>
+    /* 完全保留你的卡片样式，无任何改动 */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      min-height:100vh;
+      background:#f1f5e7;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      padding:0 1rem 2rem;
+    }
+    .header {
+      width:100%;
+      max-width:800px;
+      display:flex;
+      justify-content:space-between;
+      font-size:0.85rem;
+      font-weight:500;
+      color:#fc5204;
+      letter-spacing:0.1em;
+      text-transform:uppercase;
+      padding:0 0.2rem;
+      margin-bottom:1.5rem;
+      margin-top:0.5rem;
+    }
+    .card {
+      width:210px;
+      height:254px;
+      border-radius:4px;
+      background:#f1f5e7;
+      display:flex;
+      gap:5px;
+      padding:0.4em;
+      box-shadow:0 8px 20px rgba(0,0,0,0.04);
+      margin-top:1rem;
+    }
+    .card p {
+      height:100%;
+      flex:1;
+      overflow:hidden;
+      cursor:pointer;
+      border-radius:2px;
+      transition:all 0.5s;
+      background:#f1f5e7;
+      border:1px solid #fc5204;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin:0;
+    }
+    .card p:hover { flex:4; }
+    .card p span {
+      min-width:14em;
+      padding:0.5em;
+      text-align:center;
+      transform:rotate(-90deg);
+      transition:all 0.5s;
+      text-transform:uppercase;
+      color:#fc5204;
+      letter-spacing:0.1em;
+      font-size:0.85rem;
+      font-weight:500;
+      white-space:nowrap;
+    }
+    .card p:hover span { transform:rotate(0); }
+    .card-wrapper {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      width:100%;
+      flex:1;
+    }
+    @media (max-width:480px) {
+      .card { transform:scale(0.85); }
+      .header { font-size:0.75rem; }
+      .card p span { font-size:0.75rem; }
+    }
+  </style>
 </head>
-
 <body>
-    <!-- 顶部标题：两端对齐，字体大小与卡片标签一致 -->
-    <div class="header">
-        <span>学</span>
-        <span>习</span>
-        <span>笔</span>
-        <span>记</span>
+  <div class="header"><span>学</span><span>习</span><span>笔</span><span>记</span></div>
+  <div class="card-wrapper">
+    <div class="card">
+      <p onclick="location.href='painting-route.html'"><span>绘画路线</span></p>
+      <p onclick="location.href='painting-free.html'"><span>绘画随意</span></p>
+      <p onclick="location.href='female.html'"><span>女性</span></p>
+      <p onclick="location.href='literary-theory.html'"><span>文学理论</span></p>
+      <p onclick="location.href='others.html'"><span>其他</span></p>
     </div>
-
-    <!-- 卡片 -->
-    <div class="card-wrapper">
-        <div class="card">
-            <p><span>绘画路线</span></p>
-            <p><span>绘画随意</span></p>
-            <p><span>女性</span></p>
-            <p><span>文学理论</span></p>
-            <p><span>其他</span></p>
-        </div>
-    </div>
+  </div>
 </body>
 </html>

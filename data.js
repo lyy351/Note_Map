@@ -12,47 +12,125 @@ const APP_DATA = {
 
   // 每个栏目下的书籍/笔记条目
   items: {
+    // ===== 绘画路线：5本书 =====
     'painting-route': [
       {
-        id: 'sketch',
-        title: '素描的诀窍',
-        author: '伯特·多德森',
-        publisher: '上海人民美术出版社',
-        year: '2014',
-        cover: 'https://picsum.photos/200/280?random=1',  // 网络图片URL
+        id: 'book1',
+        title: '第一本书',
+        author: '作者一',
+        publisher: '出版社一',
+        year: '2020',
+        cover: 'https://picsum.photos/200/280?random=1',
         notes: `
           <h3>📌 心得体会</h3>
-          <p>这本书让我重新认识了线条的运用，尤其是"观察即绘画"的理念。</p>
-          <h3>🧠 思维导图</h3>
-          <img src="https://picsum.photos/600/300?random=2" alt="思维导图" style="max-width:100%;border-radius:8px;">
+          <p>这是第一本书的笔记内容。</p>
           <h3>📝 摘抄</h3>
           <blockquote style="background:#f5f5f5;padding:10px;border-left:4px solid #fc5204;">
-            "画素描不是复制对象，而是理解对象。"
+            "第一本书的精彩语录。"
           </blockquote>
         `
-      }
-    ],
-
-    'literary-theory': [
+      },
       {
-        id: '1984',
-        title: '1984',
-        author: '乔治·奥威尔',
-        publisher: '上海译文出版社',
-        year: '2018',
+        id: 'book2',
+        title: '第二本书',
+        author: '作者二',
+        publisher: '出版社二',
+        year: '2021',
+        cover: 'https://picsum.photos/200/280?random=2',
+        notes: `
+          <h3>📌 心得体会</h3>
+          <p>第二本书的读后感。</p>
+          <h3>🧠 思维导图</h3>
+          <img src="https://picsum.photos/600/300?random=10" alt="思维导图" style="max-width:100%;border-radius:8px;">
+        `
+      },
+      {
+        id: 'book3',
+        title: '第三本书',
+        author: '作者三',
+        publisher: '出版社三',
+        year: '2022',
         cover: 'https://picsum.photos/200/280?random=3',
         notes: `
-          <h3>📌 读后感</h3>
-          <p>反乌托邦的经典，对极权主义的深刻警示。</p>
-          <h3>📝 经典语录</h3>
-          <blockquote style="background:#f5f5f5;padding:10px;border-left:4px solid #fc5204;">
-            "战争即和平，自由即奴役，无知即力量。"
-          </blockquote>
+          <h3>📌 心得体会</h3>
+          <p>第三本书的学习收获。</p>
+          <h3>📊 表格对比</h3>
+          <table border="1" style="border-collapse:collapse;width:100%;">
+            <tr><th>项目</th><th>结果</th></tr>
+            <tr><td>测试A</td><td>通过</td></tr>
+          </table>
         `
+      },
+      {
+        id: 'book4',
+        title: '第四本书',
+        author: '作者四',
+        publisher: '出版社四',
+        year: '2023',
+        cover: 'https://picsum.photos/200/280?random=4',
+        notes: `<p>第四本书的简要笔记。</p>`
+      },
+      {
+        id: 'book5',
+        title: '第五本书',
+        author: '作者五',
+        publisher: '出版社五',
+        year: '2024',
+        cover: 'https://picsum.photos/200/280?random=5',
+        notes: `<p>第五本书的笔记内容。</p>`
       }
     ],
 
-    // 其他栏目先留空，以后慢慢加
+    // ===== 文学理论：5本书 =====
+    'literary-theory': [
+      {
+        id: 'lit1',
+        title: '第一本书（文学理论）',
+        author: '理论作者一',
+        publisher: '理论出版社一',
+        year: '2019',
+        cover: 'https://picsum.photos/200/280?random=6',
+        notes: `<p>文学理论第一本书的笔记。</p>`
+      },
+      {
+        id: 'lit2',
+        title: '第二本书（文学理论）',
+        author: '理论作者二',
+        publisher: '理论出版社二',
+        year: '2020',
+        cover: 'https://picsum.photos/200/280?random=7',
+        notes: `<p>文学理论第二本书的笔记。</p>`
+      },
+      {
+        id: 'lit3',
+        title: '第三本书（文学理论）',
+        author: '理论作者三',
+        publisher: '理论出版社三',
+        year: '2021',
+        cover: 'https://picsum.photos/200/280?random=8',
+        notes: `<p>文学理论第三本书的笔记。</p>`
+      },
+      {
+        id: 'lit4',
+        title: '第四本书（文学理论）',
+        author: '理论作者四',
+        publisher: '理论出版社四',
+        year: '2022',
+        cover: 'https://picsum.photos/200/280?random=9',
+        notes: `<p>文学理论第四本书的笔记。</p>`
+      },
+      {
+        id: 'lit5',
+        title: '第五本书（文学理论）',
+        author: '理论作者五',
+        publisher: '理论出版社五',
+        year: '2023',
+        cover: 'https://picsum.photos/200/280?random=11',
+        notes: `<p>文学理论第五本书的笔记。</p>`
+      }
+    ],
+
+    // ===== 其他栏目暂时为空（你可以后续添加） =====
     'painting-free': [],
     'female': [],
     'others': []

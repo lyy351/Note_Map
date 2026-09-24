@@ -130,9 +130,52 @@ const APP_DATA = {
       }
     ],
 
-    // ===== 其他栏目暂时为空（你可以后续添加） =====
+    // ===== 其他：1本书（存在主义心理治疗） =====
+    'others': [
+      {
+        id: 'existential-psychotherapy',
+        title: '存在主义心理治疗',
+        author: '欧文·D. 亚隆（Irvin D. Yalom）',
+        publisher: '商务印书馆',
+        year: '2015',
+        cover: 'https://picsum.photos/200/280?random=20',
+        url: 'https://lyy351.github.io/Note_Map/存在主义心理学导论deep版.html',
+        overview: `
+          <p>存在主义治疗并非一个独立的治疗流派，而是每一个心理治疗师在其临床工作和个人生活中都可能会采用到的一种精神取向，或者说是生活哲学。存在主义治疗所基于的假设是：我们是自由的，并且要为自己的选择及行动负责任。</p>
+          <p>欧文·D. 亚隆，斯坦福大学医学院精神病学教授，美国团体心理治疗的权威、当代精神病学大师，存在主义治疗三大代表人物之一。在本书中，亚隆教授从临床经验、实证性研究、哲学文献以及其他大量资料出发，围绕着四个“生命的终极关怀”——<strong>死亡、自由、存在的孤独和无意义</strong>——逐一进行深入探讨，阐述每一个存在性关怀的意义，并论述治疗师应该如何通过对它们的理解来进行有效的临床工作。</p>
+          <p>心理治疗的根本问题与人类存在的核心问题在这里相遇，不仅为那些存在主义取向的心理治疗师提供了一部经典的教科书，同时也为所有流派的治疗师以及所有思考过人生意义的人提供了一个对生命和存在进行反思的空间。</p>
+        `,
+        notes: `
+          <h3>📖 本书相关网页</h3>
+          <ul style="list-style:none;padding:0;">
+            <li style="margin-bottom:14px;">
+              <a href="https://lyy351.github.io/Note_Map/存在主义心理学导论deep版.html" target="_blank" rel="noopener"
+                 style="display:block;padding:14px 18px;background:#f9f6f0;border:1px solid #e2dacd;border-radius:10px;text-decoration:none;color:#1b1917;transition:.2s;">
+                <strong style="color:#9c3b2e;">网页一 · DeepSeek 版</strong><br>
+                <span style="font-size:13px;color:#8a8278;font-family:-apple-system,sans-serif;">存在主义心理学导论 deep 版</span>
+              </a>
+            </li>
+            <li style="margin-bottom:14px;">
+              <a href="https://lyy351.github.io/Note_Map/存在主义心理学导论GPT版.html" target="_blank" rel="noopener"
+                 style="display:block;padding:14px 18px;background:#f9f6f0;border:1px solid #e2dacd;border-radius:10px;text-decoration:none;color:#1b1917;transition:.2s;">
+                <strong style="color:#9c3b2e;">网页二 · GPT 版</strong><br>
+                <span style="font-size:13px;color:#8a8278;font-family:-apple-system,sans-serif;">存在主义心理学导论 GPT 版</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://stvaxp8g.qwenwork.host/" target="_blank" rel="noopener"
+                 style="display:block;padding:14px 18px;background:#f9f6f0;border:1px solid #e2dacd;border-radius:10px;text-decoration:none;color:#1b1917;transition:.2s;">
+                <strong style="color:#9c3b2e;">网页三 · 千问办公</strong><br>
+                <span style="font-size:13px;color:#8a8278;font-family:-apple-system,sans-serif;">qwenwork.host</span>
+              </a>
+            </li>
+          </ul>
+        `
+      }
+    ],
+
+    // ===== 绘画随意、女性 暂时为空 =====
     'painting-free': [],
-    'female': [],
-    'others': []
+    'female': []
   }
 };

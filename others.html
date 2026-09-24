@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>其他 · 学习笔记</title>
   <style>
-    /* 样式与 female.html 完全相同，直接复制上面 female.html 的 <style> 部分 */
     .line-sidebar {
       --accent-color: #fc5204;
       --text-color: #333;
@@ -117,6 +116,7 @@
       margin-bottom: 1.5rem;
       padding-bottom: 0.8rem;
       border-bottom: 1px solid #eee;
+      overflow: hidden;
     }
     .content-area .notes {
       line-height: 1.8;
@@ -141,6 +141,26 @@
       border-left: 4px solid #fc5204;
       margin: 0.5rem 0;
     }
+
+    /* ===== 新增：书籍概述样式 ===== */
+    .content-area .overview {
+      line-height: 1.9;
+      color: #3a3a3a;
+      padding: 0 0 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px dashed #e5e5e5;
+    }
+    .content-area .overview p {
+      margin: 0 0 0.9em;
+    }
+    .content-area .overview p:last-child {
+      margin-bottom: 0;
+    }
+    .content-area .overview strong {
+      color: #fc5204;
+      font-weight: 600;
+    }
+
     .back-home {
       display: inline-block;
       margin-bottom: 1rem;
@@ -224,6 +244,8 @@
         if (!item) return;
 
         const inner = document.getElementById('contentInner');
+
+        // 元信息
         let metaHtml = '';
         if (item.author) metaHtml += `<span>作者：${item.author}</span>`;
         if (item.director) metaHtml += `<span>导演：${item.director}</span>`;
@@ -233,9 +255,15 @@
           metaHtml = `<img src="${item.cover}" alt="${item.title}" style="max-height:200px;border-radius:8px;float:right;margin-left:1rem;margin-bottom:0.5rem;">` + metaHtml;
         }
 
+        // ===== 新增：如果有 overview 就渲染在 notes 之前 =====
+        const overviewHtml = item.overview
+          ? `<div class="overview">${item.overview}</div>`
+          : '';
+
         inner.innerHTML = `
           <h1>${item.title}</h1>
           <div class="meta">${metaHtml}</div>
+          ${overviewHtml}
           <div class="notes">${item.notes || '<p style="color:#999;">暂无笔记内容。</p>'}</div>
         `;
       }

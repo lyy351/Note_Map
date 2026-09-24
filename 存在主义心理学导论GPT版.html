@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>存在主义心理治疗｜理论定位与动力结构</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap');
+:root{--ivory:#f3f0e8;--paper:#faf8f2;--paper2:#eeebe2;--ink:#18211e;--muted:#66716b;--line:#cfcac0;--green:#173f35;--green2:#315d4e;--rust:#a95735;--rust2:#c47750;--cream:#e7dfcf;--dark:#101916;--white:#fffdf8;--max:1240px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ivory);color:var(--ink);font-family:Inter,"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:16px;line-height:1.82}a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 56px));margin:auto}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.14;background-image:radial-gradient(#18211e 0.45px,transparent .45px);background-size:7px 7px;mix-blend-mode:multiply;z-index:50}
+.hero{min-height:720px;background:var(--dark);color:#f8f4eb;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:90px 0 72px;border-bottom:1px solid #26342e}.hero:before{content:"EXISTENCE";position:absolute;right:-4vw;top:50px;font:600 clamp(110px,19vw,270px)/.8 Inter,sans-serif;letter-spacing:-.09em;color:#ffffff06;white-space:nowrap}.hero:after{content:"";position:absolute;width:720px;height:720px;border:1px solid #d7cdbb1a;border-radius:50%;right:-230px;bottom:-350px;box-shadow:0 0 0 120px #ffffff03,0 0 0 240px #ffffff02}.hero .wrap{position:relative;z-index:2}.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:80px;align-items:end}.kicker,.eyebrow{font:500 11px/1.2 "DM Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--rust2)}.hero .kicker{color:#cdbca6}.hero h1{font:500 clamp(48px,7vw,92px)/1.03 "Noto Serif SC",Georgia,serif;letter-spacing:-.055em;max-width:980px;margin:22px 0 28px}.hero p{max-width:800px;color:#c9d0ca;font-size:17px;margin:0}.hero-side{border-top:1px solid #ffffff26;padding-top:17px;color:#aeb9b3;font-size:12px}.hero-side strong{display:block;color:#f4efe5;font:500 12px "DM Mono",monospace;margin-bottom:8px}.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:30px}.pill{border:1px solid #ffffff28;color:#cdd5d0;padding:5px 10px;font:400 10px "DM Mono",monospace;letter-spacing:.06em}
+.nav{position:sticky;top:0;z-index:40;background:#f5f1e9e8;backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.nav .wrap{display:flex;overflow:auto;scrollbar-width:none}.nav .wrap::-webkit-scrollbar{display:none}.nav a{position:relative;white-space:nowrap;padding:14px 16px 13px 0;margin-right:20px;color:#737b75;font:500 10px "DM Mono",monospace;letter-spacing:.08em}.nav a:after{content:"";position:absolute;left:0;right:20px;bottom:-1px;height:2px;background:var(--rust);transform:scaleX(0);transform-origin:left;transition:.25s}.nav a:hover{color:var(--ink)}.nav a:hover:after{transform:scaleX(1)}
+main{padding:92px 0 120px}.section{scroll-margin-top:70px;margin-bottom:145px;position:relative}.section:before{content:"";position:absolute;left:-34px;top:6px;height:54px;width:1px;background:var(--rust);opacity:.55}.eyebrow{margin-bottom:8px}.section h2{font:500 clamp(36px,4.5vw,64px)/1.12 "Noto Serif SC",Georgia,serif;letter-spacing:-.04em;margin:0 0 24px;max-width:940px}.section h3{font-size:20px;line-height:1.35;margin:18px 0 9px;color:var(--green)}.lead{font-size:19px;line-height:1.9;color:#4e5953;max-width:900px}
+.callout{position:relative;margin:36px 0;padding:24px 28px;background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:16px}.callout:before{content:"NOTE";position:absolute;right:20px;top:10px;font:500 9px "DM Mono",monospace;letter-spacing:.15em;color:#9a9183}.callout strong{color:var(--green)}
+.flow{display:flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:0;margin:40px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.node{padding:18px 24px;background:transparent;border:0;border-right:1px solid var(--line);border-radius:0;font:600 11px "DM Mono",monospace;letter-spacing:.06em;color:var(--green);position:relative}.node:before{content:"";position:absolute;width:5px;height:5px;background:var(--rust);left:0;top:50%;transform:translateY(-50%)}.arrow{padding:0 12px;color:var(--rust);font-size:18px}
+.grid,.grid3{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}.grid{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:repeat(3,1fr)}.card,.panel{background:var(--paper);border:0;border-radius:0;padding:30px;box-shadow:none;position:relative}.card:before,.panel:before{content:"";position:absolute;left:0;top:0;width:0;height:2px;background:var(--rust);transition:.35s}.card:hover:before,.panel:hover:before{width:100%}.card:hover{background:#fffdf8}.num{font:500 10px "DM Mono",monospace;letter-spacing:.12em;color:var(--rust);text-transform:uppercase}.tag{display:inline-block;background:transparent;border:1px solid #bfc3bc;padding:3px 8px;margin:6px 5px 0 0;border-radius:0;color:var(--green);font:500 9px "DM Mono",monospace}
+/* model architecture */
+#models .grid3{background:transparent;border:0;gap:0;grid-template-columns:1fr}.model-card{display:grid;grid-template-columns:190px 1fr;gap:30px;border-top:1px solid var(--line);padding:32px 0}.model-card:first-child{border-top:2px solid var(--green)}.model-card .model-label{font:500 11px "DM Mono",monospace;color:var(--rust);letter-spacing:.08em}.model-chain{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-top:12px}.model-chain span{border-bottom:1px solid var(--green);padding:3px 0;font:600 12px "DM Mono",monospace}.model-chain b{font-weight:400;color:var(--rust)}
+/* comparison table */
+table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);font-size:14px}th,td{padding:17px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--green);color:#f6f1e7;font:500 10px "DM Mono",monospace;letter-spacing:.05em}tr:last-child td{border-bottom:0}th:last-child,td:last-child{border-right:0}
+/* four concerns */
+#concerns{padding-top:10px}.concern-map{position:relative;min-height:650px;margin-top:38px;border:1px solid var(--line);background:var(--dark);overflow:hidden}.concern-map:before{content:"ULTIMATE\A CONCERNS";white-space:pre;position:absolute;left:30px;top:24px;font:500 10px/1.5 "DM Mono",monospace;letter-spacing:.14em;color:#91a098}.orbit{position:absolute;width:540px;height:540px;left:50%;top:50%;transform:translate(-50%,-50%);border:1px solid #ffffff19;border-radius:50%;box-shadow:0 0 0 80px #ffffff02,0 0 0 160px #ffffff01}.core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:180px;height:180px;border:1px solid #d8cdbb55;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#f6f0e5;background:#101916}.core small{font:500 9px "DM Mono",monospace;color:#a7b1aa;letter-spacing:.18em}.core strong{font:500 27px "Noto Serif SC",serif;margin-top:8px}.concern-node{position:absolute;width:170px;min-height:130px;padding:18px;background:#f4f0e6;color:var(--ink);border:1px solid #d7d0c3;cursor:pointer;transition:.35s;z-index:2}.concern-node:hover{transform:translateY(-5px);background:#fffdf8}.concern-node .cn{font:500 9px "DM Mono",monospace;color:var(--rust)}.concern-node h3{margin:8px 0 3px;font:500 24px "Noto Serif SC",serif;color:var(--ink)}.concern-node p{font-size:12px;line-height:1.55;margin:0;color:#68716b}.cn1{left:8%;top:14%}.cn2{right:8%;top:14%}.cn3{left:8%;bottom:14%}.cn4{right:8%;bottom:14%}
+.concern-detail{display:none;background:var(--paper);border-top:1px solid var(--line);padding:26px}.concern-detail.active{display:block}.detail-title{font:500 24px "Noto Serif SC",serif;margin-bottom:6px}.detail-meta{font:500 9px "DM Mono",monospace;color:var(--rust);letter-spacing:.12em}
+/* regular concern cards hidden visual duplication */
+#concerns>.grid{display:none}
+/* timeline */
+.timeline{position:relative;margin:42px 0 0;padding:0}.timeline:before{content:"";position:absolute;left:7px;top:4px;bottom:8px;width:1px;background:var(--line)}.titem{position:relative;padding:0 0 42px 45px}.dot{position:absolute;left:0;top:6px;width:15px;height:15px;background:var(--ivory);border:3px solid var(--green);border-radius:50%;box-shadow:0 0 0 5px var(--ivory)}.titem h3{margin-top:0;font:500 23px "Noto Serif SC",serif}.titem p{max-width:760px;color:#5f6963;margin-bottom:0}
+/* details */
+details{background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;margin:0;padding:0}details:last-of-type{border-bottom:1px solid var(--line)}summary{cursor:pointer;padding:19px 0;font:500 15px "DM Mono",monospace;color:var(--green);list-style:none}summary::-webkit-details-marker{display:none}summary:before{content:"+";display:inline-block;width:30px;color:var(--rust);font-size:16px}details[open] summary:before{content:"−"}details p{padding:0 40px 20px;margin:0;max-width:850px;color:#5f6963}
+.search{display:flex;gap:0;margin:25px 0;border-bottom:1px solid var(--ink)}.search input{flex:1;border:0;border-radius:0;padding:14px 0;background:transparent;font:500 13px "DM Mono",monospace;outline:0}.search:before{content:"⌕";padding:12px 12px 12px 0;color:var(--rust)}.ref{padding:12px 0;border-bottom:1px solid #ddd8cf;font-size:14px}.ref.hidden{display:none}
+.footer{background:var(--dark);color:#aeb9b3;padding:58px 0}.footer strong{font:500 15px "Noto Serif SC",serif;color:#f3eee5}.small{font-size:12px;max-width:700px;color:#7f8c85}
+@media(max-width:900px){.hero{min-height:620px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero-side{max-width:400px}.grid3{grid-template-columns:1fr}.model-card{grid-template-columns:1fr;gap:8px}.concern-map{min-height:780px}.orbit{width:420px;height:420px}.cn1,.cn2{top:10%}.cn3,.cn4{bottom:10%}.cn1,.cn3{left:4%}.cn2,.cn4{right:4%}}
+@media(max-width:650px){.wrap{width:min(100% - 32px,var(--max))}main{padding-top:60px}.section{margin-bottom:100px}.section:before{display:none}.hero{padding:62px 0 50px;min-height:620px}.hero h1{font-size:45px}.hero p{font-size:15px}.pills{margin-top:22px}.flow{align-items:stretch}.node{flex:1 1 40%;padding:13px 15px}.arrow{display:none}.grid{grid-template-columns:1fr}.card,.panel{padding:24px}.concern-map{min-height:690px}.orbit{width:300px;height:300px}.core{width:130px;height:130px}.core strong{font-size:21px}.concern-node{width:145px;min-height:112px;padding:14px}.concern-node h3{font-size:20px}.concern-node p{font-size:11px}.cn1{left:3%;top:8%}.cn2{right:3%;top:8%}.cn3{left:3%;bottom:8%}.cn4{right:3%;bottom:8%}table{display:block;overflow-x:auto;white-space:normal}.section h2{font-size:38px}.lead{font-size:17px}}
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="wrap"><div class="hero-grid"><div><div class="kicker">Interactive Academic Guide</div>
+<h1>存在主义心理治疗<br>的理论定位与动力结构</h1>
+<p>基于欧文·亚隆《存在主义心理治疗》第一章“导论”的学术整理。将动力模型、四大终极关怀、现象学、海德格尔、历史脉络与方法论张力组织成一套可展开、可比较、可回溯的在线阅读系统。</p>
+<div class="pills"><span class="pill">死亡</span><span class="pill">自由</span><span class="pill">孤独</span><span class="pill">无意义</span><span class="pill">现象学</span><span class="pill">海德格尔</span><span class="pill">人本主义</span><span class="pill">实证研究</span></div>
+</div><aside class="hero-side"><strong>THEORETICAL AXIS</strong>个体 ↔ 存在既定事实<br>意识 → 焦虑 → 防御<br><br><strong>READING MODE</strong>概念地图 / 动力结构 / 历史脉络</aside></div></div>
+</header>
+
+<nav class="nav"><div class="wrap">
+<a href="#intro">导论</a><a href="#models">三种模型</a><a href="#concerns">四大关怀</a><a href="#defense">焦虑与防御</a><a href="#time">时间与深度</a><a href="#phenomenology">现象学</a><a href="#heidegger">海德格尔</a><a href="#history">历史脉络</a><a href="#research">研究张力</a><a href="#limits">贡献与局限</a><a href="#refs">文献</a>
+</div></nav>
+
+<main class="wrap">
+<section class="section" id="intro">
+<div class="eyebrow">01 · 导论</div><h2>存在主义心理治疗为什么仍然是“动力性的”？</h2>
+<p class="lead">文档将存在主义心理治疗界定为一种“聚焦于个体存在之关怀的动力性治疗方法”。这里的动力性并不意味着只能使用精神分析术语，而是意味着心理生活仍被理解为多股力量之间的张力与冲突。</p>
+<div class="callout"><strong>核心转向：</strong>保留“力量—冲突—焦虑—防御”的动力结构，但把冲突的中心从驱力与内部结构，移向“个体 ↔ 存在的既定事实”。</div>
+<div class="flow"><span class="node">个体</span><span class="arrow">↔</span><span class="node">存在既定事实</span><span class="arrow">→</span><span class="node">终极关怀</span><span class="arrow">→</span><span class="node">焦虑</span><span class="arrow">→</span><span class="node">防御</span></div>
+</section>
+
+<section class="section" id="models">
+<div class="eyebrow">02 · 比较框架</div><h2>三种动力模型：冲突发生在哪里？</h2>
+<div class="grid3">
+<div class="model-card"><div class="model-label">01 / FREUD</div><div><h3>驱力 → 内部冲突</h3><p>基本冲突围绕本我、超我以及本能与压抑展开；时间上更强调过去与发展史。</p><div class="model-chain"><span>DRIVE</span><b>→</b><span>CONFLICT</span><b>→</b><span>ANXIETY</span><b>→</b><span>DEFENSE</span></div></div></div>
+<div class="model-card"><div class="model-label">02 / NEO-FREUDIAN</div><div><h3>关系 → 成长与安全</h3><p>冲突更多进入关系和社会环境：成长需要与安全需要之间形成张力。</p><div class="model-chain"><span>GROWTH</span><b>↔</b><span>SECURITY</span><b>→</b><span>ANXIETY</span><b>→</b><span>DEFENSE</span></div></div></div>
+<div class="model-card"><div class="model-label">03 / EXISTENTIAL</div><div><h3>存在 → 终极关怀</h3><p>个体面对死亡、自由、孤独、无意义等存在事实时产生动力张力。</p><div class="model-chain"><span>INDIVIDUAL</span><b>↔</b><span>EXISTENCE</span><b>→</b><span>ULTIMATE CONCERNS</span><b>→</b><span>ANXIETY</span><b>→</b><span>DEFENSE</span></div></div></div>
+</div>
+<h3>逐项比较</h3>
+<table><thead><tr><th>维度</th><th>弗洛伊德</th><th>新弗洛伊德 / 人际</th><th>存在主义</th></tr></thead>
+<tbody>
+<tr><td>基本冲突</td><td>本我 / 超我；本能与压抑</td><td>成长 vs 安全</td><td>个体 vs 存在既定事实</td></tr>
+<tr><td>人观</td><td>生物性有机体</td><td>关系中成长的存在</td><td>能够意识到自身存在并面对终极关怀的存在</td></tr>
+<tr><td>时间</td><td>过去塑造现在</td><td>早期关系影响现在</td><td>未来可能性进入现在</td></tr>
+<tr><td>治疗</td><td>回溯、解释</td><td>安全、成长、关系</td><td>面对选择、责任、有限性与当下存在</td></tr>
+</tbody></table>
+</section>
+
+<section class="section" id="concerns">
+<div class="eyebrow">03 · 核心地图</div><h2>四大终极关怀</h2>
+<p class="lead">四个终极关怀构成存在主义动力模型的中心。点击任一卡片，展开它的核心张力、防御与治疗含义。</p>
+<div class="concern-map"><div class="orbit"></div><div class="core"><small>THE HUMAN CONDITION</small><strong>EXISTENCE</strong></div>
+<div class="concern-node cn1" onclick="showConcern(1)"><div class="cn">01 / DEATH</div><h3>死亡</h3><p>知道终将死亡，却仍渴望继续存在。</p></div>
+<div class="concern-node cn2" onclick="showConcern(2)"><div class="cn">02 / FREEDOM</div><h3>自由</h3><p>选择意味着责任，也意味着无最终依据。</p></div>
+<div class="concern-node cn3" onclick="showConcern(3)"><div class="cn">03 / ISOLATION</div><h3>孤独</h3><p>关系无法彻底替代“独自存在”的维度。</p></div>
+<div class="concern-node cn4" onclick="showConcern(4)"><div class="cn">04 / MEANINGLESSNESS</div><h3>无意义</h3><p>人需要意义，但宇宙并未预设答案。</p></div></div>
+<div class="concern-detail active" id="cd1"><div class="detail-meta">01 / DEATH</div><div class="detail-title">死亡：求生与终结的张力</div><p><strong>核心张力：</strong>求生欲望与死亡不可避免性之间的冲突。死亡意识可以成为深层焦虑来源，并促使人发展各种防御。文档进一步联系恐惧管理理论，将死亡意识放入后续经验研究脉络。</p></div>
+<div class="concern-detail" id="cd2"><div class="detail-meta">02 / FREEDOM</div><div class="detail-title">自由：选择与无根基感</div><p><strong>核心张力：</strong>自由意味着选择，同时意味着没有一个能够替自己承担选择的最终依据。回避可以表现为依赖权威、从众、决策瘫痪等；治疗关注个体如何面对选择与责任。</p></div>
+<div class="concern-detail" id="cd3"><div class="detail-meta">03 / ISOLATION</div><div class="detail-title">孤独：关系无法取消的存在维度</div><p><strong>需要区分：</strong>人际孤独、内在孤独与存在主义孤独。社会关系的增加并不能完全取消“没有任何人可以替我存在”的维度；治疗关系支持个体面对孤独，而不是通过融合消除差异。</p></div>
+<div class="concern-detail" id="cd4"><div class="detail-meta">04 / MEANINGLESSNESS</div><div class="detail-title">无意义：意义需求与预设答案的缺席</div><p><strong>核心张力：</strong>人需要意义，但存在本身并不自动提供预先写好的宇宙意义。文档区分 Frankl 的“发现意义”与 Yalom 更强调通过投入、行动与生活参与创造 / 发明意义的取向。</p></div>
+</section>
+
+<section class="section" id="defense">
+<div class="eyebrow">04 · 动力结构</div><h2>焦虑不是终点：防御如何介入？</h2>
+<div class="flow"><span class="node">终极关怀</span><span class="arrow">→</span><span class="node">存在性焦虑</span><span class="arrow">→</span><span class="node">防御机制</span><span class="arrow">→</span><span class="node">生活方式 / 症状</span></div>
+<div class="grid">
+<div class="panel"><h3>防御的双重性质</h3><p>防御具有普遍性与必要性。问题不是“有没有防御”，而是防御是否不足、是否过度僵化，以及是否持续扭曲现实并造成过高心理代价。</p></div>
+<div class="panel"><h3>治疗目标</h3><p>不是把防御全部清除，而是帮助个体以更少扭曲、更低代价的方式与存在性焦虑共存，并提高面对存在问题的灵活性。</p></div>
+</div>
+</section>
+
+<section class="section" id="time">
+<div class="eyebrow">05 · 时间性</div><h2>“未来变成现在”：时间与“深度”</h2>
+<div class="timeline">
+<div class="titem"><span class="dot"></span><h3>过去</h3><p>精神分析传统尤其强调早期经验、发展史与过去如何塑造现在。</p></div>
+<div class="titem"><span class="dot"></span><h3>现在</h3><p>存在主义治疗关注此刻正在发生的体验、选择、责任和治疗关系。</p></div>
+<div class="titem"><span class="dot"></span><h3>未来</h3><p>死亡、可能性、选择和尚未发生的生活方向，会进入当下，成为当下焦虑和行动的重要组成部分。</p></div>
+</div>
+<div class="callout"><strong>“深”不等于“更早”。</strong> 存在主义意义上的深度更接近“是否触及存在结构本身”，而不是在时间轴上不断向童年追溯。</div>
+</section>
+
+<section class="section" id="phenomenology">
+<div class="eyebrow">06 · 方法姿态</div><h2>现象学：进入经验，而不是抢先解释经验</h2>
+<div class="flow"><span class="node">悬置预设</span><span class="arrow">→</span><span class="node">进入来访者经验世界</span><span class="arrow">→</span><span class="node">理解经验如何呈现</span><span class="arrow">→</span><span class="node">再进入解释</span></div>
+<p class="lead">现象学态度要求治疗者尽量悬置已有的解释框架，以来访者自身经验的呈现方式为入口。它不是取消理论，而是避免理论在理解发生之前就把经验“翻译完”。</p>
+<div class="callout">理解另一个人的世界，并不等于与另一个人的世界融合。治疗关系仍然保留双方的差异。</div>
+</section>
+
+<section class="section" id="heidegger">
+<div class="eyebrow">07 · 哲学背景</div><h2>海德格尔：概念不是同义词，而是一组结构</h2>
+<details><summary>Dasein · 此在</summary><p>从能够理解自身存在的存在者出发思考人的存在方式，而不是把人单纯当作一个被观察的对象。</p></details>
+<details><summary>日常性 · das Man · 沉沦</summary><p>人在日常生活中容易沉入“人们都这么做”的匿名规范之中，使自身选择被既有生活方式接管。</p></details>
+<details><summary>被抛 · Thrownness</summary><p>人不是从零开始选择自己的处境，而是在已经存在的条件、历史与限制中开始自己的存在。</p></details>
+<details><summary>投射 · Projection</summary><p>即使处于既定处境，人仍不断面向未来可能性；这种“向可能性展开”的结构使未来能够进入现在。</p></details>
+<details><summary>向死而存在 · Being-toward-death</summary><p>死亡不是一个遥远的终点，而是能够重新组织当下存在方式的结构性界限。</p></details>
+<details><summary>时间性 · Temporality</summary><p>过去、现在与未来并非三个彼此封闭的盒子；存在的时间结构使未来可能性能够进入现在，也重新组织对过去的理解。</p></details>
+<div class="callout"><strong>阅读限定：</strong>文档特别指出，亚隆对海德格尔概念的使用具有选择性，不能把存在主义心理治疗中的海德格尔术语直接等同于海德格尔哲学本身。</div>
+</section>
+
+<section class="section" id="history">
+<div class="eyebrow">08 · 历史脉络</div><h2>理论如何进入美国心理学语境？</h2>
+<div class="timeline">
+<div class="titem"><span class="dot"></span><h3>精神分析传统</h3><p>以驱力、压抑、内部冲突和发展史构成动力模型。</p></div>
+<div class="titem"><span class="dot"></span><h3>新弗洛伊德与人际取向</h3><p>关系、安全、成长和社会环境进入动力解释中心。</p></div>
+<div class="titem"><span class="dot"></span><h3>存在主义进入心理治疗</h3><p>冲突进一步被放在个体与存在条件之间，终极关怀成为新的动力来源。</p></div>
+<div class="titem"><span class="dot"></span><h3>美国人本主义心理学</h3><p>与存在主义共享对主体经验、自由与成长的关注，同时在理论取向和“限制 / 乐观”问题上存在差异。</p></div>
+<div class="titem"><span class="dot"></span><h3>当代延伸</h3><p>出现英国存在主义分析、经验研究、正念 / 接纳的相邻讨论，以及姑息治疗、死亡教育、意义中心团体等应用方向。</p></div>
+</div>
+</section>
+
+<section class="section" id="research">
+<div class="eyebrow">09 · 方法论</div><h2>临床经验与实证研究：不是二选一，而是翻译问题</h2>
+<div class="grid">
+<div class="panel"><h3>临床侧</h3><p>强调个体独特性、主观体验、意义、整体存在结构，以及治疗关系中的即时经验。</p></div>
+<div class="panel"><h3>研究侧</h3><p>需要可操作化变量、可重复测量、标准化程序和能够比较的结果指标。</p></div>
+</div>
+<div class="flow"><span class="node">个体独特性</span><span class="arrow">↔</span><span class="node">可操作化</span><span class="arrow">↔</span><span class="node">证据</span></div>
+<p class="lead">文档的重点不是简单宣称存在主义心理治疗“反对科学”，而是指出：高度依赖主观体验、意义和存在结构的理论，如何转化为可以接受经验检验的问题，是一个真实的方法论张力。</p>
+</section>
+
+<section class="section" id="limits">
+<div class="eyebrow">10 · 评价与延伸</div><h2>贡献、局限与当代扩展</h2>
+<div class="grid3">
+<div class="card"><div class="num">CONTRIBUTIONS</div><h3>贡献</h3><p>建立以终极关怀为中心的动力框架；把死亡、自由、孤独、无意义纳入心理治疗的核心讨论；连接哲学、临床与后续经验研究。</p></div>
+<div class="card"><div class="num">LIMITATIONS</div><h3>局限</h3><p>部分概念难以操作化；存在文化假设；具体适应证边界可能不够清晰；哲学概念转入临床时存在翻译损失。</p></div>
+<div class="card"><div class="num">EXTENSIONS</div><h3>当代延伸</h3><p>英国存在主义分析、经验研究、正念 / 接纳的相邻方向，以及姑息治疗、死亡教育、意义中心团体等。</p></div>
+</div>
+</section>
+
+<section class="section" id="refs">
+<div class="eyebrow">11 · 参考文献</div><h2>References</h2>
+<div class="search"><input id="search" placeholder="搜索作者、书名或关键词……" oninput="filterRefs()"></div>
+<ul class="refs" id="refsList">
+<li class="ref">Yalom, I. D. (1980). <em>Existential Psychotherapy</em>.</li>
+<li class="ref">Heidegger, M. (1927). <em>Being and Time</em>.</li>
+<li class="ref">Freud, S. ——精神分析理论相关著作。</li>
+<li class="ref">Sullivan, H. S. ——人际关系取向相关著作。</li>
+<li class="ref">Horney, K. ——新弗洛伊德与人际理论相关著作。</li>
+<li class="ref">Fromm, E. ——社会与存在相关理论。</li>
+<li class="ref">May, R. ——存在主义心理治疗与焦虑相关著作。</li>
+<li class="ref">Bugental, J. F. T. ——人本主义 / 存在主义治疗相关著作。</li>
+<li class="ref">Maslow, A. H. ——人本主义心理学相关著作。</li>
+<li class="ref">Frankl, V. E. ——意义治疗相关著作。</li>
+<li class="ref">Boss, M. ——存在分析相关著作。</li>
+<li class="ref">Solomon, S., Greenberg, J., & Pyszczynski, T. ——恐惧管理理论相关研究。</li>
+<li class="ref">van Deurzen, E. ——英国存在主义分析相关著作。</li>
+<li class="ref">陈嘉映 ——海德格尔及存在论相关中文研究。</li>
+<li class="ref">Kockelmans, J. J. ——现象学 / 海德格尔研究。</li>
+</ul>
+</section>
+</main>
+
+<footer class="footer"><div class="wrap"><strong>存在主义心理治疗｜理论定位与动力结构</strong><p class="small">本页面按所提供学术整理文档的概念结构重新组织为交互式阅读界面；没有把网页做成单纯的摘要页，而是保留比较、论证、概念节点与延伸脉络。</p></div></footer>
+
+<script>
+function toggleCard(el){el.classList.toggle('open')}
+function showConcern(n){document.querySelectorAll('.concern-detail').forEach(x=>x.classList.remove('active'));document.getElementById('cd'+n).classList.add('active')}
+function filterRefs(){
+ const q=document.getElementById('search').value.trim().toLowerCase();
+ document.querySelectorAll('#refsList .ref').forEach(x=>x.classList.toggle('hidden',q && !x.textContent.toLowerCase().includes(q)));
+}
+</script>
+</body>
+</html>
